@@ -17,7 +17,7 @@ This project demonstrates Java unit testing with **Selenium WebDriver** using **
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ciphx/lambdatest.git
    cd java-unit-testing
    ```
 
