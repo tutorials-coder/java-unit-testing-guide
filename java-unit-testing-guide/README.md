@@ -72,9 +72,6 @@ This project demonstrates Java unit testing with **Selenium WebDriver** using **
 3. **E-commerce Testing**
     - Tests product search functionality
     - Validates search results
-
-![img.png](unit_tests.png)
-![img.png](lambdatest_automation.png)
 ---
 
 ## **Configuration**
