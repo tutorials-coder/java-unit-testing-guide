@@ -1,0 +1,3 @@
+# Ignore properties files containing sensitive data
+*.properties
+!src/test/resources/junit-platform.properties

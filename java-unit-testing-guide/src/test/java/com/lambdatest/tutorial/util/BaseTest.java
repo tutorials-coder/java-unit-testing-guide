@@ -1,4 +1,4 @@
-package com.lambdatest.tutorial;
+package com.lambdatest.tutorial.util;
 
 import java.time.Duration;
 
@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.lambdatest.tutorial.config.TestConfig;
-import com.lambdatest.tutorial.util.WebDriverUtil;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -26,6 +25,7 @@ public class BaseTest {
     
     protected void executeTest(TestRunnable testLogic) throws Exception {
         try {
+            driver.get(TestConfig.APP_URL);
             testLogic.run();
             WebDriverUtil.markStatus(driver, TestConfig.Status.PASSED);
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class BaseTest {
             tearDown();
         }
     }
-    
+
     @FunctionalInterface
     protected interface TestRunnable {
         void run() throws Exception;

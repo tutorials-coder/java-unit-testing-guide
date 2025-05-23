@@ -1,104 +1,149 @@
-# **Java Unit Testing with LambdaTest**
+# Java Unit Testing Guide with LambdaTest
 
-This project demonstrates Java unit testing with **Selenium WebDriver** using **LambdaTest's cloud platform**. It includes examples of form testing, checkbox interactions, and e-commerce functionality across different browsers.
+This project demonstrates how to write and run unit tests using Java, JUnit 5, and Selenium WebDriver with LambdaTest's cloud platform. It includes examples of form testing, calculator functionality, and cross-browser testing.
 
----
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Project Structure](#project-structure)
+- [Running Tests](#running-tests)
+- [Viewing Test Results](#viewing-test-results)
+- [Test Types](#test-types)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
 
-## **Prerequisites**
+## Features
+- Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- Parallel test execution
+- Parameterized tests
+- Cloud-based test execution with LambdaTest
+- Local test execution support
+- Configurable test settings
 
-- **Java JDK 8** or higher
-- **Maven**
-- **LambdaTest Account** *(for running Selenium tests)*
+## Prerequisites
+- Java JDK 21 or higher
+- Maven
+- LambdaTest Account
+  - Sign up at [LambdaTest](https://www.lambdatest.com/signup)
+  - Get your username and access key from [LambdaTest Security Settings](https://accounts.lambdatest.com/security/username-accesskey)
 
----
-
-## **Setup**
+## Setup
 
 1. **Clone the repository:**
-
    ```bash
-   git clone https://github.com/ciphx/lambdatest.git
-   cd java-unit-testing
+   git clone https://github.com/yourusername/java-unit-testing-guide.git
+   cd java-unit-testing-guide
    ```
 
-2. **Set up LambdaTest credentials as environment variables:**
-
-    - **For Linux/Mac:**
-      ```bash
-      export LT_USERNAME=your_username
-      export LT_ACCESS_KEY=your_access_key
-      ```
-
-    - **For Windows:**
-      ```cmd
-      set LT_USERNAME=your_username
-      set LT_ACCESS_KEY=your_access_key
-      ```
+2. **Set up LambdaTest credentials:**
+   - For Linux/Mac:
+     ```bash
+     export LT_USERNAME=your_username
+     export LT_ACCESS_KEY=your_access_key
+     ```
+   - For Windows:
+     ```cmd
+     set LT_USERNAME=your_username
+     set LT_ACCESS_KEY=your_access_key
+     ```
 
 3. **Install dependencies:**
-
    ```bash
    mvn clean install
    ```
 
----
+## Project Structure
+```
+java-unit-testing-guide/
+├── src/
+│   ├── main/java/
+│   │   └── com/lambdatest/tutorial/
+│   │       └── Calculator.java
+│   └── test/java/
+│       └── com/lambdatest/tutorial/
+│           ├── config/
+│           │   └── TestConfig.java
+│           ├── util/
+│           │   ├── BaseTest.java
+│           │   └── WebDriverUtil.java
+│           ├── CloudCalculatorTest.java
+│           ├── LocalSeleniumCalculatorTest.java
+│           └── CalculatorTest.java
+└── pom.xml
+```
 
-## **Running Tests**
+## Running Tests
 
-- **Run all tests:**
+### Run All Tests
+```bash
+mvn test
+```
 
-  ```bash
-  mvn test
-  ```
+### Run Specific Test Class
+```bash
+mvn test -Dtest=CloudCalculatorTest
+```
 
-- **Run a specific test:**
+### Run Specific Test Method
+```bash
+mvn test -Dtest=CloudCalculatorTest#testWithDifferentBrowsers
+```
 
-  ```bash
-  mvn test -Dtest=LambdaTestDemo#testName
-  ```
+## Viewing Test Results
 
----
+### LambdaTest Dashboard
+1. Log in to [LambdaTest Automation Builds](https://automation.lambdatest.com/build?pageType=build)
+2. Find your build using the format: "Calculator Tests - YYYY-MM-DD HH:mm:ss"
 
-## **Test Scenarios**
+### Local Test Reports
+Test reports are generated in:
+```
+target/surefire-reports/
+```
 
-1. **Form Input Testing**
-    - Validates simple form input and display
-    - Runs across multiple browsers
+## Test Types
 
-2. **Checkbox Testing**
-    - Verifies checkbox functionality
-    - Tests success message display
+### 1. Local Calculator Tests (`CalculatorTest.java`)
+- Pure unit tests for calculator logic
+- No browser dependency
+- Fast execution
 
-3. **E-commerce Testing**
-    - Tests product search functionality
-    - Validates search results
----
+### 2. Local Selenium Tests (`LocalSeleniumCalculatorTest.java`)
+- Selenium tests running on local machine
+- Chrome browser only
+- Good for quick local testing
 
-## **Configuration**
+### 3. Cloud Calculator Tests (`CloudCalculatorTest.java`)
+- Cross-browser testing on LambdaTest platform
+- Tests calculator functionality across different browsers
+- Parallel execution support
+- Build naming format: "Calculator Tests - {timestamp}"
 
-The tests run on the following configurations:
+## Configuration
 
-- **Browsers:**
-    - Chrome (latest and 114.0)
-    - Firefox (latest and 113.0)
+### Test Configuration (`TestConfig.java`)
+The `TestConfig` class centralizes all test configuration settings:
 
-- **Platform:**
-    - Windows 10
+- **LambdaTest Credentials**: Environment variables for username and access key
+- **Application URL**: The target website for testing
+- **Build Configuration**: Format for build names and timestamps
+- **Browser Settings**: Supported browsers (Chrome, Firefox, Safari, Edge)
+- **Version Settings**: Browser versions (latest, specific versions)
+- **Platform Settings**: Operating systems (Windows 10, macOS Monterey)
+- **Test Status**: Constants for test results (passed, failed)
 
----
+### Parallel Execution (`junit-platform.properties`)
+```properties
+junit.jupiter.execution.parallel.enabled=true
+junit.jupiter.execution.parallel.mode.default=concurrent
+junit.jupiter.execution.parallel.mode.classes.default=concurrent
+junit.jupiter.execution.parallel.config.strategy=fixed
+junit.jupiter.execution.parallel.config.fixed.parallelism=5
+```
 
-## **Contributing**
-
+## Contributing
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Create a Pull Request
-
----
-
-## **License**
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`
