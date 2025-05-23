@@ -96,6 +96,21 @@ mvn test -Dtest=CloudCalculatorTest#testWithDifferentBrowsers
 1. Log in to [LambdaTest Automation Builds](https://automation.lambdatest.com/build?pageType=build)
 2. Find your build using the format: "Calculator Tests - YYYY-MM-DD HH:mm:ss"
 
+### Test Run Screenshots
+The repository includes screenshots of test runs demonstrating the cross-browser testing capabilities:
+
+1. **lambdatest_tests_run.png**
+   - Shows the test execution results across multiple browsers (Chrome, Firefox, Edge, Safari)
+   - Demonstrates parallel test execution with 5 concurrent tests
+   - Highlights the build naming convention with timestamps
+   - Shows test status and execution time for each browser configuration
+
+2. **junit_tests_status.png**
+   - Displays the detailed JUnit test execution results
+   - Shows test statistics including total tests run, failures, errors, and skipped tests
+   - Includes execution time for each test class
+   - Demonstrates the test organization and naming conventions used in the project
+
 ### Local Test Reports
 Test reports are generated in:
 ```
@@ -146,4 +161,4 @@ junit.jupiter.execution.parallel.config.fixed.parallelism=5
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`
+4. Push to the branch (`git push origin feature/AmazingFeature`)
