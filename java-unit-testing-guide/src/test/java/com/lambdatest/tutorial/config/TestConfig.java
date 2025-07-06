@@ -20,8 +20,6 @@ public class TestConfig {
     
     public static class Version {
         public static final String LATEST = "latest";
-        public static final String CHROME_114 = "114.0";
-        public static final String FIREFOX_113 = "113.0";
     }
     
     public static class Platform {
